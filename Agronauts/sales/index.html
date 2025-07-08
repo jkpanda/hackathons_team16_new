@@ -1,35 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<! --
-<head>
-<meta charset="UTF-8">
-<title>AgroNauts.ai Sales Dashboard</title>
-<style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f6f8; color: #333; }
-    header { background: #007BFF; color: white; padding: 1rem 2rem; }
-    h1 { margin: 0; }
-    .container { padding: 2rem; }
- 
-    .section { margin-bottom: 2rem; background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
-    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-    th, td { padding: 10px; border: 1px solid #ccc; text-align: left; }
-    th { background: #f0f2f5; }
- 
-    .highlight { color: #007BFF; font-weight: bold; }
-    .lead { background: #e9f7ef; padding: 1rem; margin-bottom: 1rem; border-left: 5px solid #28a745; }
- 
-    a.button {
-      background: #007BFF;
-      color: white;
-      padding: 0.6rem 1rem;
-      text-decoration: none;
-      border-radius: 5px;
-      display: inline-block;
-      margin-top: 0.5rem;
-    }
-</style>
-</head>
--->
 
 <head>
   <meta charset="UTF-8" />
@@ -145,7 +115,7 @@
 </head>
 
 <body>
- 
+
 <header>
   <div style="display: flex; align-items: center; gap: 20px;">
     <img src="logo.png" alt="AgroNauts Logo" style="height: 50px;" />
@@ -157,7 +127,7 @@
 </header>
 
 <nav>
-  <a href="#">Home</a>
+  <a href="../index.html">Home</a>
   <a href="#lead">Key Personas</a>
   <a href="#tracker">Lead Tracker</a>
   <a href="#materials">Sales Materials</a>
@@ -166,7 +136,7 @@
 </nav>
 
 <div class="container">
- 
+
 <div id = "lead" class="section">
 <h2>👤 Key Personas</h2>
 <div class="lead">
@@ -182,7 +152,7 @@
 <em>Needs harvest predictions and visual crop documentation across distributed farms.</em>
 </div>
 </div>
- 
+
 <div id = "tracker" class="section">
 <h2>📊 Lead Tracker</h2>
 <table>
@@ -212,23 +182,23 @@
 </tr>
 </table>
 </div>
- 
+
 <div id = "materials" class="section">
 <h2>📄 Sales Materials</h2>
 <ul>
 <li><a href="sales-flyer.pdf" class="button" download>📎 Download Sales Flyer</a></li>
 <li><a href="coldEmails.docx" class="button">📧 View Cold Email Templates</a></li>
-<li><a href="Sales pitch.docx" class="button">💬 Elevator Pitch</a></li> 
+<li><a href="Sales pitch.docx" class="button">💬 Elevator Pitch</a></li>
 </ul>
 </div>
- 
+
 <div id = "metrics" class="section">
 <h2>📈 Simulated Metrics</h2>
 <p>🟢 3 Active Leads</p>
 <p>📨 5 Outreach Emails Sent</p>
 <p>🗓️ Next Demo: <strong>July 10th, 11:00 AM</strong></p>
 </div>
- 
+
 </div>
 
 <div id = "assistant" class="section">
@@ -239,29 +209,29 @@
   <input type="text" id="user-input" placeholder="Type your question..." style="width: 80%; padding: 0.5rem;">
   <button onclick="handleChat()" style="padding: 0.5rem;">Send</button>
   </div>
-   
+
   <script>
     function handleChat() {
       const input = document.getElementById("user-input");
       const chat = document.getElementById("chat-window");
       const userText = input.value.trim();
       if (userText === "") return;
-   
+
       // Display user message
       const userMsg = document.createElement("div");
       userMsg.innerHTML = "<strong>You:</strong> " + userText;
       chat.appendChild(userMsg);
-   
+
       // Simulate AI response
       const aiMsg = document.createElement("div");
       aiMsg.style.marginTop = "5px";
       aiMsg.innerHTML = "<strong>Assistant:</strong> " + getAIResponse(userText);
       chat.appendChild(aiMsg);
-   
+
       input.value = "";
       chat.scrollTop = chat.scrollHeight;
     }
-   
+
     function getAIResponse(input) {
       input = input.toLowerCase();
       if (input.includes("high-priority")) {
