@@ -12,6 +12,9 @@
       margin: 0;
       background-color: #f5f8f4;
       color: #2d3e30;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -45,15 +48,49 @@
     }
 
     .hero {
-      padding: 60px 40px;
+      padding: 20px 40px;
       text-align: center;
-      background: url('https://images.unsplash.com/photo-1565614307241-47af22b20c4e') center/cover no-repeat;
-      color: white;
+      background-color: #f5f8f4;
+      color: #2d3e30;
+    }
+
+    .hero-banner {
+      margin-bottom: 40px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 580px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-image:hover {
+      transform: translateY(-5px);
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .hero h2 {
       font-size: 2.5rem;
       margin-bottom: 10px;
+      color: #1e5128;
+      font-weight: 800;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: #2d3e30;
+      font-weight: 600;
     }
 
     .section {
@@ -98,17 +135,35 @@
       cursor: pointer;
     }
 
+    .main-content {
+      flex: 1;
+    }
+
     footer {
       background-color: #1e5128;
       color: white;
       text-align: center;
       padding: 20px;
       font-size: 0.9rem;
+      margin-top: auto;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .hero h2 {
         font-size: 1.8rem;
+      }
+
+      .hero-banner {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-image {
+        max-width: 90%;
+      }
+
+      .hero {
+        padding: 20px 20px;
       }
     }
   </style>
@@ -133,9 +188,17 @@
     <a href="./software/index.html">Software Dashboard</a>
   </nav>
 
-  <div class="hero" style="color: #2d3e30;">
-    <h2>Smart Drones for Smarter Farming</h2>
-    <p>Grow More. Waste Less. Manage Smarter.</p>
+  <div class="main-content">
+    <div class="hero" style="color: #2d3e30;">
+      <div class="hero-banner">
+        <img src="home_page_image1.png" alt="AgroNauts Drone Technology 1" class="hero-image" />
+        <img src="home_page_image2.png" alt="AgroNauts Drone Technology 2" class="hero-image" />
+      </div>
+      <div class="hero-content">
+        <h2>Smart Drones for Smarter Farming</h2>
+        <p>Grow More. Waste Less. Manage Smarter.</p>
+      </div>
+    </div>
   </div>
 
 
