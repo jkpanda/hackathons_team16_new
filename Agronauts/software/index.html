@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Agriculture Monitoring Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="logo"><i class="fas fa-seedling"></i></span>
+                <h2>Agronauts</h2>
+                <button class="sidebar-toggle" id="sidebarToggle" title="Toggle Sidebar"><i class="fas fa-bars"></i></button>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><button type="button" data-section="overview-section"><i class="fas fa-chart-pie"></i> <span>Overview</span></button></li>
+                    <li><button type="button" data-section="drone-section"><i class="fas fa-drone"></i> <span>Drone Status</span></button></li>
+                    <li><button type="button" data-section="field-section"><i class="fas fa-leaf"></i> <span>Field Data</span></button></li>
+                    <li><button type="button" data-section="alerts-section"><i class="fas fa-exclamation-triangle"></i> <span>Alerts</span></button></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <h1>Drone Agriculture Monitoring Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <button id="auto-sim-toggle" class="simulate-btn" title="Toggle Auto Simulation"><i class="fas fa-play"></i></button>
+                    <span class="user-avatar"><i class="fas fa-user-circle"></i></span>
+                    <span class="settings"><i class="fas fa-cog"></i></span>
+                </div>
+            </header>
+            <section id="overview-section" class="dashboard-section">
+                <div class="dashboard-widgets">
+                    <div class="widget fields-overview">
+                        <h3><i class="fas fa-map"></i> Fields Overview <button id="simulate-fields-btn" class="simulate-btn" title="Simulate Fields"><i class="fas fa-random"></i></button></h3>
+                        <table class="fields-overview-table"><thead><tr>
+                            <th>Field</th><th>Crop</th><th>Area</th><th>Last Scan</th><th>Status</th>
+                        </tr></thead><tbody id="fields-overview-table"></tbody></table>
+                    </div>
+                    <div class="widget crop-health">
+                        <h3><i class="fas fa-seedling"></i> Crop Health Monitoring</h3>
+                        <div id="crop-health-status">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    <div class="widget weather-monitoring">
+                        <h3><i class="fas fa-cloud-sun"></i> Weather Monitoring <button id="simulate-storm-btn" class="simulate-btn" title="Simulate Storm"><i class="fas fa-bolt"></i></button></h3>
+                        <div id="weather-widget">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    <div class="widget virtual-fencing">
+                        <h3><i class="fas fa-border-all"></i> Virtual Fencing</h3>
+                        <div id="virtual-fence">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                    <div class="widget crop-advisor">
+                        <h3><i class="fas fa-brain"></i> Crop Advisor Panel</h3>
+                        <div id="crop-advisor-content">
+                            <!-- Populated by JS -->
+                        </div>
+                        <button id="ask-crop-ai" class="ask-crop-ai-btn"><i class="fas fa-robot"></i> Ask Crop AI</button>
+                    </div>
+                    <div class="widget drone-field-map">
+                        <h3><i class="fas fa-map-marked-alt"></i> Drone Field Map</h3>
+                        <div id="drone-field-map" style="height:260px;"></div>
+                    </div>
+                </div>
+            </section>
+            <section id="drone-section" class="dashboard-section" style="display:none;">
+                <div class="dashboard-widgets">
+                    <div class="widget drone-dashboard">
+                        <h3><i class="fas fa-drone"></i> Drone Dashboard <button id="simulate-drones-btn" class="simulate-btn" title="Simulate Drones"><i class="fas fa-random"></i></button></h3>
+                        <table class="drone-table">
+                            <thead>
+                                <tr>
+                                    <th>Drone ID</th>
+                                    <th>Field Name</th>
+                                    <th>Status</th>
+                                    <th>Battery</th>
+                                    <th>Flight Time</th>
+                                    <th>Coordinates</th>
+                                    <th>Flight Status</th>
+                                    <th>Pest Alarm</th>
+                                </tr>
+                            </thead>
+                            <tbody id="drone-table-body">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="widget drone-field-map">
+                        <h3><i class="fas fa-map-marked-alt"></i> Drone Field Map</h3>
+                        <div id="drone-field-map-2" style="height:260px;"></div>
+                    </div>
+                </div>
+            </section>
+            <section id="field-section" class="dashboard-section" style="display:none;">
+                <div class="dashboard-widgets">
+                    <div class="widget fields-overview">
+                        <h3><i class="fas fa-map"></i> Fields Overview <button id="simulate-fields-btn-2" class="simulate-btn" title="Simulate Fields"><i class="fas fa-random"></i></button></h3>
+                        <table class="fields-overview-table"><thead><tr>
+                            <th>Field</th><th>Crop</th><th>Area</th><th>Last Scan</th><th>Status</th>
+                        </tr></thead><tbody id="fields-overview-table-2"></tbody></table>
+                    </div>
+                </div>
+            </section>
+            <section id="alerts-section" class="dashboard-section" style="display:none;">
+                <div class="dashboard-widgets">
+                    <div class="widget alerts">
+                        <h3><i class="fas fa-bell"></i> Recent Alerts <button id="simulate-alert-btn" class="simulate-btn" title="Simulate Alert"><i class="fas fa-plus"></i></button> <button id="simulate-storm-btn-alerts" class="simulate-btn" title="Simulate Storm"><i class="fas fa-bolt"></i></button></h3>
+                        <ul id="alerts-list"></ul>
+                        <form id="custom-alert-form" class="custom-alert-form">
+                            <select id="custom-alert-type">
+                                <option value="info">Info</option>
+                                <option value="warning">Warning</option>
+                                <option value="danger">Danger</option>
+                            </select>
+                            <input id="custom-alert-msg" type="text" placeholder="Alert message" required style="width: 60%;">
+                            <button type="submit" class="simulate-btn" title="Add Alert"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="dashboard.js"></script>
+    <script>
+        // Sidebar collapse/expand
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('collapsed');
+        });
+    </script>
+</body>
+</html> 

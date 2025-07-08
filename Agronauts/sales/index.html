@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<! --
+<head>
+<meta charset="UTF-8">
+<title>AgroNauts.ai Sales Dashboard</title>
+<style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f6f8; color: #333; }
+    header { background: #007BFF; color: white; padding: 1rem 2rem; }
+    h1 { margin: 0; }
+    .container { padding: 2rem; }
+ 
+    .section { margin-bottom: 2rem; background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { padding: 10px; border: 1px solid #ccc; text-align: left; }
+    th { background: #f0f2f5; }
+ 
+    .highlight { color: #007BFF; font-weight: bold; }
+    .lead { background: #e9f7ef; padding: 1rem; margin-bottom: 1rem; border-left: 5px solid #28a745; }
+ 
+    a.button {
+      background: #007BFF;
+      color: white;
+      padding: 0.6rem 1rem;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+</style>
+</head>
+-->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroNauts | Precision Farming from the Sky</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #f5f8f4;
+      color: #2d3e30;
+    }
+
+    header {
+      background-color: #1e5128;
+      color: white;
+      padding: 20px 40px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.1rem;
+    }
+
+    nav {
+      background-color: #2a7031;
+      padding: 10px 40px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 60px 40px;
+      text-align: center;
+      background: url('https://images.unsplash.com/photo-1565614307241-47af22b20c4e') center/cover no-repeat;
+      color: white;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .section {
+      padding: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .features,
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-box,
+    .testimonial {
+      background: white;
+      border: 1px solid #cce3c1;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .cta {
+      background-color: #a4d18e;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .cta button {
+      background-color: #1e5128;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #1e5128;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+ 
+<header>
+  <div style="display: flex; align-items: center; gap: 20px;">
+    <img src="logo.png" alt="AgroNauts Logo" style="height: 50px;" />
+    <div>
+      <h1>AgroNauts Drones</h1>
+      <p>Precision Farming from the Sky</p>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <a href="#">Home</a>
+  <a href="#lead">Key Personas</a>
+  <a href="#tracker">Lead Tracker</a>
+  <a href="#materials">Sales Materials</a>
+  <a href="#metrics">Simulated Metrics</a>
+  <a href="#assistant">Sales Assistant</a>
+</nav>
+
+<div class="container">
+ 
+<div id = "lead" class="section">
+<h2>👤 Key Personas</h2>
+<div class="lead">
+<strong>Amit Kulkarni</strong> – CTO, FarmTech Solutions<br>
+<em>Wants real-time drone crop analytics to integrate with his SaaS platform.</em>
+</div>
+<div class="lead">
+<strong>Rekha Sharma</strong> – Commercial Farmer, Nashik<br>
+<em>Wants early alerts on crop diseases and smart spray mapping.</em>
+</div>
+<div class="lead">
+<strong>David Menon</strong> – Supply Chain Manager, AgriFresh Exports<br>
+<em>Needs harvest predictions and visual crop documentation across distributed farms.</em>
+</div>
+</div>
+ 
+<div id = "tracker" class="section">
+<h2>📊 Lead Tracker</h2>
+<table>
+<tr>
+<th>Name</th>
+<th>Company</th>
+<th>Priority</th>
+<th>Status</th>
+</tr>
+<tr>
+<td>Amit Kulkarni</td>
+<td>FarmTech</td>
+<td><span class="highlight">High</span></td>
+<td>Demo Scheduled</td>
+</tr>
+<tr>
+<td>Rekha Sharma</td>
+<td>Sharma Farms</td>
+<td>Medium</td>
+<td>Follow-up Needed</td>
+</tr>
+<tr>
+<td>David Menon</td>
+<td>AgriFresh Exports</td>
+<td><span class="highlight">High</span></td>
+<td>In Talks</td>
+</tr>
+</table>
+</div>
+ 
+<div id = "materials" class="section">
+<h2>📄 Sales Materials</h2>
+<ul>
+<li><a href="sales-flyer.pdf" class="button" download>📎 Download Sales Flyer</a></li>
+<li><a href="coldEmails.docx" class="button">📧 View Cold Email Templates</a></li>
+<li><a href="Sales pitch.docx" class="button">💬 Elevator Pitch</a></li> 
+</ul>
+</div>
+ 
+<div id = "metrics" class="section">
+<h2>📈 Simulated Metrics</h2>
+<p>🟢 3 Active Leads</p>
+<p>📨 5 Outreach Emails Sent</p>
+<p>🗓️ Next Demo: <strong>July 10th, 11:00 AM</strong></p>
+</div>
+ 
+</div>
+
+<div id = "assistant" class="section">
+  <h2>🤖 Sales Assistant</h2>
+  <div id="chat-window" style="height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 1rem; background: #fff; margin-bottom: 1rem;">
+  <div><strong>Assistant:</strong> Hi! Ask me anything about our leads or sales materials.</div>
+  </div>
+  <input type="text" id="user-input" placeholder="Type your question..." style="width: 80%; padding: 0.5rem;">
+  <button onclick="handleChat()" style="padding: 0.5rem;">Send</button>
+  </div>
+   
+  <script>
+    function handleChat() {
+      const input = document.getElementById("user-input");
+      const chat = document.getElementById("chat-window");
+      const userText = input.value.trim();
+      if (userText === "") return;
+   
+      // Display user message
+      const userMsg = document.createElement("div");
+      userMsg.innerHTML = "<strong>You:</strong> " + userText;
+      chat.appendChild(userMsg);
+   
+      // Simulate AI response
+      const aiMsg = document.createElement("div");
+      aiMsg.style.marginTop = "5px";
+      aiMsg.innerHTML = "<strong>Assistant:</strong> " + getAIResponse(userText);
+      chat.appendChild(aiMsg);
+   
+      input.value = "";
+      chat.scrollTop = chat.scrollHeight;
+    }
+   
+    function getAIResponse(input) {
+      input = input.toLowerCase();
+      if (input.includes("high-priority")) {
+        return "We have 2 high-priority leads: Amit Kulkarni (FarmTech) and David Menon (AgriFresh).";
+      } else if (input.includes("sales flyer")) {
+        return "You can download the flyer from the Sales Materials section or directly [here](sales-flyer.pdf).";
+      } else if (input.includes("next demo")) {
+        return "The next demo is scheduled for July 10th at 11:00 AM.";
+      } else if (input.includes("leads") || input.includes("tracker")) {
+        return "Check the Lead Tracker section for all active leads and statuses.";
+      } else {
+        return "I'm still learning! Try asking about 'high-priority leads', 'sales flyer', or 'next demo'.";
+      }
+    }
+  </script>
+
+</body>
+</html>
