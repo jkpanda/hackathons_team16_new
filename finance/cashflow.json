@@ -1,0 +1,16 @@
+{
+  "period": "2024-Q2",
+  "cash_inflows": {
+    "operating_activities": 80000,
+    "investing_activities": 5000,
+    "financing_activities": 10000
+  },
+  "cash_outflows": {
+    "operating_activities": 30000,
+    "investing_activities": 2000,
+    "financing_activities": 4000
+  },
+  "net_cash_flow": 63000,
+  "opening_balance": 20000,
+  "closing_balance": 83000
+} 

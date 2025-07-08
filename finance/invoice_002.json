@@ -1,0 +1,17 @@
+{
+  "invoice_number": "INV-002",
+  "date": "2024-06-10",
+  "client": {
+    "name": "Beta LLC",
+    "address": "456 Oak Ave, Metropolis, USA"
+  },
+  "items": [
+    {"description": "Web Development", "quantity": 20, "unit_price": 150, "amount": 3000},
+    {"description": "Maintenance", "quantity": 5, "unit_price": 100, "amount": 500}
+  ],
+  "subtotal": 3500,
+  "tax": 350,
+  "total": 3850,
+  "due_date": "2024-07-10",
+  "status": "Unpaid"
+} 

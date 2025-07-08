@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P&L and Cash Flow Reports</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f7f7f7; margin: 0; padding: 0; }
+    .container { max-width: 700px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 32px 24px 24px 24px; }
+    h1, h2 { text-align: center; color: #333; }
+    table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+    th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid #eee; }
+    th { color: #666; font-weight: 500; width: 60%; }
+    td { color: #222; font-weight: 600; }
+    tr.total th, tr.total td, tr.net-income th, tr.net-income td { color: #0a7d2c; font-size: 1.1em; font-weight: bold; }
+    .section { margin-bottom: 40px; }
+    #period, #cf-period { text-align: right; color: #888; margin-bottom: 8px; font-size: 0.95em; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Financial Reports</h1>
+    <div class="section">
+      <h2>Profit &amp; Loss (P&amp;L) Report</h2>
+      <div id="period"></div>
+      <table>
+        <tbody>
+          <tr><th>Revenue</th><td id="revenue"></td></tr>
+          <tr><th>Cost of Goods Sold</th><td id="cogs"></td></tr>
+          <tr><th>Gross Profit</th><td id="gross_profit"></td></tr>
+          <tr><th>Operating Expenses</th><td id="operating_expenses"></td></tr>
+          <tr><th>Operating Income</th><td id="operating_income"></td></tr>
+          <tr><th>Other Income</th><td id="other_income"></td></tr>
+          <tr><th>Other Expenses</th><td id="other_expenses"></td></tr>
+          <tr class="net-income"><th>Net Income</th><td id="net_income"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="section">
+      <h2>Cash Flow Report</h2>
+      <div id="cf-period"></div>
+      <table>
+        <tbody>
+          <tr><th>Operating Activities (Inflow)</th><td id="cf-op-in"></td></tr>
+          <tr><th>Investing Activities (Inflow)</th><td id="cf-inv-in"></td></tr>
+          <tr><th>Financing Activities (Inflow)</th><td id="cf-fin-in"></td></tr>
+          <tr><th>Operating Activities (Outflow)</th><td id="cf-op-out"></td></tr>
+          <tr><th>Investing Activities (Outflow)</th><td id="cf-inv-out"></td></tr>
+          <tr><th>Financing Activities (Outflow)</th><td id="cf-fin-out"></td></tr>
+          <tr><th>Net Cash Flow</th><td id="cf-net"></td></tr>
+          <tr><th>Opening Balance</th><td id="cf-open"></td></tr>
+          <tr class="total"><th>Closing Balance</th><td id="cf-close"></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    // Load P&L
+    fetch('pnl.json').then(r => r.json()).then(data => {
+      document.getElementById('period').textContent = `Period: ${data.period}`;
+      document.getElementById('revenue').textContent = data.revenue.toLocaleString();
+      document.getElementById('cogs').textContent = data.cost_of_goods_sold.toLocaleString();
+      document.getElementById('gross_profit').textContent = data.gross_profit.toLocaleString();
+      document.getElementById('operating_expenses').textContent = data.operating_expenses.toLocaleString();
+      document.getElementById('operating_income').textContent = data.operating_income.toLocaleString();
+      document.getElementById('other_income').textContent = data.other_income.toLocaleString();
+      document.getElementById('other_expenses').textContent = data.other_expenses.toLocaleString();
+      document.getElementById('net_income').textContent = data.net_income.toLocaleString();
+    });
+    // Load Cash Flow
+    fetch('cashflow.json').then(r => r.json()).then(data => {
+      document.getElementById('cf-period').textContent = `Period: ${data.period}`;
+      document.getElementById('cf-op-in').textContent = data.cash_inflows.operating_activities.toLocaleString();
+      document.getElementById('cf-inv-in').textContent = data.cash_inflows.investing_activities.toLocaleString();
+      document.getElementById('cf-fin-in').textContent = data.cash_inflows.financing_activities.toLocaleString();
+      document.getElementById('cf-op-out').textContent = data.cash_outflows.operating_activities.toLocaleString();
+      document.getElementById('cf-inv-out').textContent = data.cash_outflows.investing_activities.toLocaleString();
+      document.getElementById('cf-fin-out').textContent = data.cash_outflows.financing_activities.toLocaleString();
+      document.getElementById('cf-net').textContent = data.net_cash_flow.toLocaleString();
+      document.getElementById('cf-open').textContent = data.opening_balance.toLocaleString();
+      document.getElementById('cf-close').textContent = data.closing_balance.toLocaleString();
+    });
+  </script>
+</body>
+</html> 
