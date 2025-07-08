@@ -305,11 +305,106 @@
         <a href="#" class="button"><i class="fas fa-comments"></i> Feedback System</a>
       </div>
     </div>
+
+    <div class="section">
+      <h2><i class="fas fa-robot"></i> HR Assistant</h2>
+      <div id="hr-chat-window" style="height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 1rem; background: #fff; margin-bottom: 1rem; border-radius: 8px;">
+        <div><strong>HR Assistant:</strong> Hi! I'm your HR Assistant. Ask me about policies, benefits, leave requests, or any HR-related questions.</div>
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <input type="text" id="hr-user-input" placeholder="Type your HR question..." style="flex: 1; padding: 0.8rem; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem;">
+        <button onclick="handleHRChat()" class="button" style="padding: 0.8rem 1.5rem;"><i class="fas fa-paper-plane"></i> Send</button>
+      </div>
+      <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+        <button onclick="quickHRQuestion('leave policy')" style="background: #f8f9fa; border: 1px solid #ccc; padding: 8px 12px; border-radius: 20px; cursor: pointer; font-size: 0.9rem;">Leave Policy</button>
+        <button onclick="quickHRQuestion('benefits')" style="background: #f8f9fa; border: 1px solid #ccc; padding: 8px 12px; border-radius: 20px; cursor: pointer; font-size: 0.9rem;">Benefits Info</button>
+        <button onclick="quickHRQuestion('remote work')" style="background: #f8f9fa; border: 1px solid #ccc; padding: 8px 12px; border-radius: 20px; cursor: pointer; font-size: 0.9rem;">Remote Work</button>
+        <button onclick="quickHRQuestion('payroll')" style="background: #f8f9fa; border: 1px solid #ccc; padding: 8px 12px; border-radius: 20px; cursor: pointer; font-size: 0.9rem;">Payroll</button>
+      </div>
+    </div>
   </div>
 
   <footer>
     📍 Supporting Our People, Growing Our Company | 📧 hr@agronauts.com | 📞 HR Helpline: 1-800-AGRI-HR <br />
     © 2025 AgroNauts. All rights reserved.
   </footer>
+
+  <script>
+    function handleHRChat() {
+      const input = document.getElementById("hr-user-input");
+      const chat = document.getElementById("hr-chat-window");
+      const userText = input.value.trim();
+      if (userText === "") return;
+
+      // Display user message
+      const userMsg = document.createElement("div");
+      userMsg.innerHTML = "<strong>You:</strong> " + userText;
+      userMsg.style.marginTop = "10px";
+      chat.appendChild(userMsg);
+
+      // Simulate AI response
+      const aiMsg = document.createElement("div");
+      aiMsg.style.marginTop = "10px";
+      aiMsg.style.padding = "10px";
+      aiMsg.style.backgroundColor = "#f8f9fa";
+      aiMsg.style.borderRadius = "5px";
+      aiMsg.innerHTML = "<strong>HR Assistant:</strong> " + getHRResponse(userText);
+      chat.appendChild(aiMsg);
+
+      input.value = "";
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function quickHRQuestion(topic) {
+      const input = document.getElementById("hr-user-input");
+      input.value = "Tell me about " + topic;
+      handleHRChat();
+    }
+
+    function getHRResponse(input) {
+      input = input.toLowerCase();
+
+      if (input.includes("leave") || input.includes("vacation") || input.includes("pto")) {
+        return "🏖️ <strong>Leave Policy:</strong> You get 20 days annual leave per year, 10 sick days, and public holidays. Submit requests at least 5 working days in advance through the HR portal. No doctor's note needed for up to 2 consecutive sick days.";
+      }
+      else if (input.includes("remote") || input.includes("work from home") || input.includes("wfh")) {
+        return "🏡 <strong>Remote Work:</strong> All full-time employees are eligible for remote work. Core hours are 10 AM - 4 PM IST. You can also work hybrid (up to 3 days in office). Ensure reliable internet and distraction-free workspace.";
+      }
+      else if (input.includes("benefit") || input.includes("insurance") || input.includes("health")) {
+        return "💚 <strong>Benefits:</strong> We offer comprehensive health insurance, dental coverage, mental health support, professional development budget, and flexible work arrangements. Check the Benefits Portal for detailed information.";
+      }
+      else if (input.includes("payroll") || input.includes("salary") || input.includes("pay")) {
+        return "💰 <strong>Payroll:</strong> Salaries are processed monthly on the last working day. Access your payslips through the Employee Portal. For payroll questions, contact hr@agronauts.com or use the Payroll System.";
+      }
+      else if (input.includes("policy") || input.includes("handbook")) {
+        return "📋 <strong>Policies:</strong> All company policies are available in the HR Resources section above. This includes leave policies, remote work guidelines, and company values. You can also check the detailed HR Policies document.";
+      }
+      else if (input.includes("onboard") || input.includes("new hire") || input.includes("training")) {
+        return "🎓 <strong>Training & Onboarding:</strong> New employees go through a comprehensive onboarding program. Access training materials through the Learning Management System. We invest in continuous professional development for all team members.";
+      }
+      else if (input.includes("contact") || input.includes("help") || input.includes("support")) {
+        return "📞 <strong>HR Support:</strong> Contact us at hr@agronauts.com or call our HR Helpline at 1-800-AGRI-HR. For urgent matters, reach out to your direct manager or the People Operations team.";
+      }
+      else if (input.includes("values") || input.includes("culture") || input.includes("mission")) {
+        return "💖 <strong>Company Culture:</strong> Our values are People First, Ownership, Curiosity, Collaboration, and Impact. We prioritize empathy, respect, and inclusivity. Check our Mission & Values document for more details.";
+      }
+      else if (input.includes("time") || input.includes("attendance") || input.includes("hours")) {
+        return "⏰ <strong>Time & Attendance:</strong> Use the Time Tracking system to log your hours. Standard work week is 40 hours. Flexible working hours are available with manager approval. Current attendance rate is 96.8%.";
+      }
+      else if (input.includes("feedback") || input.includes("review") || input.includes("performance")) {
+        return "📊 <strong>Performance & Feedback:</strong> We conduct quarterly performance reviews and encourage continuous feedback. Use the Feedback System for peer reviews and suggestions. Next review period: Jan 5-15, 2025.";
+      }
+      else {
+        return "🤖 I'm here to help with HR questions! Try asking about: leave policy, benefits, remote work, payroll, company policies, training, or contact information. You can also use the quick buttons above for common topics.";
+      }
+    }
+
+    // Allow Enter key to send message
+    document.getElementById("hr-user-input").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        handleHRChat();
+      }
+    });
+  </script>
 </body>
 </html>
