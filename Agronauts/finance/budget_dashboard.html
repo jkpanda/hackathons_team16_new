@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12-Month Budget Dashboard</title>
+    <link rel="stylesheet" href="finance_dashboard.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>12-Month Budget</h1>
+        <div class="summary" id="budget-summary"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Revenue</th>
+                    <th>Expenses</th>
+                    <th>Net Income</th>
+                </tr>
+            </thead>
+            <tbody id="budget-table-body">
+            </tbody>
+        </table>
+    </div>
+    <script>
+        fetch('budget_12_months.json')
+            .then(response => response.json())
+            .then(data => {
+                const tbody = document.getElementById('budget-table-body');
+                let totalRevenue = 0, totalExpenses = 0, totalNet = 0;
+                data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `<td>${row.month}</td><td>${row.revenue.toLocaleString()}</td><td>${row.expenses.toLocaleString()}</td><td>${row.net_income.toLocaleString()}</td>`;
+                    tbody.appendChild(tr);
+                    totalRevenue += row.revenue;
+                    totalExpenses += row.expenses;
+                    totalNet += row.net_income;
+                });
+                // Add totals row
+                const tr = document.createElement('tr');
+                tr.className = 'total';
+                tr.innerHTML = `<th>Total</th><th>${totalRevenue.toLocaleString()}</th><th>${totalExpenses.toLocaleString()}</th><th>${totalNet.toLocaleString()}</th>`;
+                tbody.appendChild(tr);
+                document.getElementById('budget-summary').textContent = `Total Revenue: $${totalRevenue.toLocaleString()} | Total Expenses: $${totalExpenses.toLocaleString()} | Total Net Income: $${totalNet.toLocaleString()}`;
+            });
+    </script>
+</body>
+</html> 

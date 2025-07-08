@@ -1,0 +1,14 @@
+[
+  {"month": "2024-01", "revenue": 12000, "expenses": 8000, "net_income": 4000},
+  {"month": "2024-02", "revenue": 12500, "expenses": 8200, "net_income": 4300},
+  {"month": "2024-03", "revenue": 13000, "expenses": 8500, "net_income": 4500},
+  {"month": "2024-04", "revenue": 13500, "expenses": 8700, "net_income": 4800},
+  {"month": "2024-05", "revenue": 14000, "expenses": 9000, "net_income": 5000},
+  {"month": "2024-06", "revenue": 14500, "expenses": 9200, "net_income": 5300},
+  {"month": "2024-07", "revenue": 15000, "expenses": 9500, "net_income": 5500},
+  {"month": "2024-08", "revenue": 15500, "expenses": 9700, "net_income": 5800},
+  {"month": "2024-09", "revenue": 16000, "expenses": 10000, "net_income": 6000},
+  {"month": "2024-10", "revenue": 16500, "expenses": 10200, "net_income": 6300},
+  {"month": "2024-11", "revenue": 17000, "expenses": 10500, "net_income": 6500},
+  {"month": "2024-12", "revenue": 17500, "expenses": 10800, "net_income": 6700}
+] 

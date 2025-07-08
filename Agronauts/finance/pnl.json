@@ -1,0 +1,11 @@
+{
+  "period": "2024-Q2",
+  "revenue": 42000,
+  "cost_of_goods_sold": 20000,
+  "gross_profit": 22000,
+  "operating_expenses": 5000,
+  "operating_income": 17000,
+  "other_income": 500,
+  "other_expenses": 200,
+  "net_income": 17100
+} 

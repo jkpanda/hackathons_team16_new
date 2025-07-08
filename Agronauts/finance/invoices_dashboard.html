@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoices Dashboard</title>
+    <link rel="stylesheet" href="finance_dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Invoices</h1>
+        <div class="invoice-list" id="invoice-list"></div>
+        <div class="invoice-details" id="invoice-details" style="display:none;"></div>
+    </div>
+    <script>
+        const invoiceFiles = ['invoice_001.json', 'invoice_002.json'];
+        const invoices = [];
+        Promise.all(invoiceFiles.map(f => fetch(f).then(r => r.json()))).then(dataArr => {
+            dataArr.forEach(inv => invoices.push(inv));
+            renderInvoiceList();
+        });
+
+        function renderInvoiceList() {
+            const list = document.getElementById('invoice-list');
+            list.innerHTML = '';
+            invoices.forEach((inv, idx) => {
+                const div = document.createElement('div');
+                div.className = 'invoice-item';
+                div.innerHTML = `<strong>${inv.invoice_number}</strong> | ${inv.client.name} | Date: ${inv.date} | Total: $${inv.total.toLocaleString()} | Status: ${inv.status}`;
+                div.onclick = () => showInvoiceDetails(idx);
+                list.appendChild(div);
+            });
+        }
+
+        function showInvoiceDetails(idx) {
+            const inv = invoices[idx];
+            const details = document.getElementById('invoice-details');
+            details.style.display = 'block';
+            details.innerHTML = `
+                <h2>Invoice ${inv.invoice_number}</h2>
+                <p><strong>Date:</strong> ${inv.date}</p>
+                <p><strong>Client:</strong> ${inv.client.name}<br>${inv.client.address}</p>
+                <table>
+                    <thead><tr><th>Description</th><th>Qty</th><th>Unit Price</th><th>Amount</th></tr></thead>
+                    <tbody>
+                        ${inv.items.map(item => `<tr><td>${item.description}</td><td>${item.quantity}</td><td>$${item.unit_price.toLocaleString()}</td><td>$${item.amount.toLocaleString()}</td></tr>`).join('')}
+                    </tbody>
+                </table>
+                <p><strong>Subtotal:</strong> $${inv.subtotal.toLocaleString()}<br>
+                <strong>Tax:</strong> $${inv.tax.toLocaleString()}<br>
+                <strong>Total:</strong> $${inv.total.toLocaleString()}<br>
+                <strong>Due Date:</strong> ${inv.due_date}<br>
+                <strong>Status:</strong> ${inv.status}</p>
+                <button onclick="document.getElementById('invoice-details').style.display='none'">Close</button>
+            `;
+        }
+    </script>
+</body>
+</html> 
