@@ -33,6 +33,7 @@ I have successfully integrated all the different folders (software, hr, marketin
 - Department overview
 - Upcoming events and announcements
 - HR tools and services
+- **NEW**: HR Assistant chatbot with intelligent responses for HR queries
 
 #### 3. Sales Module (`/sales/`)
 **Location**: `Agronauts/sales/index.html`
@@ -133,8 +134,9 @@ Agronauts/
 1. **Created Marketing Module**: Built comprehensive marketing dashboard from scratch
 2. **Enhanced Software Dashboard**: Added "Other Modules" section in sidebar navigation
 3. **Created HR Dashboard**: Central hub for all HR resources and metrics
-4. **Fixed Navigation Links**: Updated all inter-module links for consistency
-5. **Unified Styling**: Consistent design across all modules
+4. **Added HR Assistant Chatbot**: Interactive chatbot for HR queries and support
+5. **Fixed Navigation Links**: Updated all inter-module links for consistency
+6. **Unified Styling**: Consistent design across all modules
 
 ### Integration Benefits:
 - **Single Entry Point**: Software dashboard serves as main application launcher
